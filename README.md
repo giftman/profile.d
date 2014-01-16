@@ -1,7 +1,7 @@
-profile.d(Target:Everything in remote)
+profile.d(Target:Everything in air)
 =========
 
-enviroment setting
+everything in air
 
 use:
 
