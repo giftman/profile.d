@@ -26,8 +26,8 @@ git clone http://github.com/giftman/profile.d/
 
 cd profile.d
 
-git pull
+ln mac_batch_profile.sh ~/.bash_profile
 
-cp mac_batch_profile.sh ~/.bash_profile
+git pull
 
 source ~/.bash_profile
