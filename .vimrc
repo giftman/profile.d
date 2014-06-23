@@ -120,20 +120,28 @@ call vundle#begin()
 Plugin 'gmarik/Vundle'
 
 " 以下为要安装或更新的插件，不同仓库都有（具体书写规范请参考帮助）
+" :AS 头源文件切换
 Plugin 'a.vim'
+" 对齐
 Plugin 'Align'
 Plugin 'jiangmiao/auto-pairs'
+" :BufExplorer 
 Plugin 'bufexplorer.zip'
+" :BufExplorer 
 Plugin 'ccvext.vim'
 Plugin 'cSyntaxAfter'
 Plugin 'Yggdroot/indentLine'
 Plugin 'Shougo/neocomplcache.vim'
+" 代码注释器  
 Plugin 'scrooloose/nerdcommenter'
+"
 Plugin 'scrooloose/nerdtree'
 Plugin 'FromtonRouge/OmniCppComplete'
 Plugin 'Lokaltog/vim-powerline'
-Plugin 'repeat.vim'
-Plugin 'msanders/snipmate.vim'
+"Plugin 'repeat.vim'
+"代码补全，自动生成
+"Plugin 'msanders/snipmate.vim'
+"代码预览 good
 Plugin 'wesleyche/SrcExpl'
 Plugin 'std_c.zip'
 Plugin 'tpope/vim-surround'
@@ -479,8 +487,8 @@ set vb t_vb= "关闭提示音
 " 如果是Windows系统, 则生成的文件在源文件所在盘符根目录的.symbs目录下(如: X:\.symbs\)
 " 如果是Linux系统, 则生成的文件在~/.symbs/目录下
 " 具体用法可参考www.vim.org中此插件的说明
-" <Leader>sy 自动生成tags与cscope文件并连接
-" <Leader>sc 连接已存在的tags与cscope文件
+"<Leader>sy 自动生成tags与cscope文件并连接
+"<Leader>sc 连接已存在的tags与cscope文件
 
 " -----------------------------------------------------------------------------
 " < cSyntaxAfter 插件配置 >
@@ -535,7 +543,7 @@ noremap <c-l> <c-w>l
 " < neocomplcache 插件配置 >
 " -----------------------------------------------------------------------------
 " 关键字补全、文件路径补全、tag补全等等，各种，非常好用，速度超快。
-let g:neocomplcache_enable_at_startup = 1 "vim 启动时启用插件
+"let g:neocomplcache_enable_at_startup = 1 "vim 启动时启用插件
 " let g:neocomplcache_disable_auto_complete = 1 "不自动弹出补全列表
 " 在弹出补全列表后用 <c-p> 或 <c-n> 进行上下选择效果比较好
 
@@ -551,7 +559,7 @@ let g:neocomplcache_enable_at_startup = 1 "vim 启动时启用插件
 " <Leader>cu 取消选中区域(行)的注释，选中区域(行)内至少有一个 /* */
 " <Leader>ca 在/*...*/与//这两种注释方式中切换（其它语言可能不一样了）
 " <Leader>cA 行尾注释
-let NERDSpaceDelims = 1 "在左注释符之后，右注释符之前留有空格
+"let NERDSpaceDelims = 1 "在左注释符之后，右注释符之前留有空格
 
 " -----------------------------------------------------------------------------
 " < nerdtree 插件配置 >
@@ -567,10 +575,10 @@ nmap <F2> :NERDTreeToggle<CR>
 " 用于C/C++代码补全，这种补全主要针对命名空间、类、结构、共同体等进行补全，详细
 " 说明可以参考帮助或网络教程等
 " 使用前先执行如下 ctags 命令（本配置中可以直接使用 ccvext 插件来执行以下命令）
-" ctags -R --c++-kinds=+p --fields=+iaS --extra=+q
+"ctags -R --c++-kinds=+p --fields=+iaS --extra=+q
 " 我使用上面的参数生成标签后，对函数使用跳转时会出现多个选择
 " 所以我就将--c++-kinds=+p参数给去掉了，如果大侠有什么其它解决方法希望不要保留呀
-set completeopt=menu "关闭预览窗口
+"set completeopt=menu "关闭预览窗口
 
 " -----------------------------------------------------------------------------
 " < powerline 插件配置 >
@@ -609,7 +617,7 @@ set completeopt=menu "关闭预览窗口
 " 用于增强C语法高亮
 
 " 启用 // 注视风格
-let c_cpp_comments = 0
+"let c_cpp_comments = 0
 
 " -----------------------------------------------------------------------------
 " < surround 插件配置 >
@@ -631,7 +639,7 @@ let c_cpp_comments = 0
 nmap tb :TlistClose<cr>:TagbarToggle<cr>
 
 let g:tagbar_width=30 "设置窗口宽度
-" let g:tagbar_left=1 "在左侧窗口中显示
+ let g:tagbar_left=1 "在左侧窗口中显示
 
 " -----------------------------------------------------------------------------
 " < TagList 插件配置 >
@@ -640,20 +648,20 @@ let g:tagbar_width=30 "设置窗口宽度
 " 那里面列出了当前文件中的所有宏,全局变量, 函数名等
 
 " 常规模式下输入 tl 调用插件，如果有打开 Tagbar 窗口则先将其关闭
-nmap tl :TagbarClose<cr>:Tlist<cr>
-
-let Tlist_Show_One_File=1 "只显示当前文件的tags
-" let Tlist_Enable_Fold_Column=0 "使taglist插件不显示左边的折叠行
-let Tlist_Exit_OnlyWindow=1 "如果Taglist窗口是最后一个窗口则退出Vim
-let Tlist_File_Fold_Auto_Close=1 "自动折叠
-let Tlist_WinWidth=30 "设置窗口宽度
-let Tlist_Use_Right_Window=1 "在右侧窗口中显示
+"nmap tl :TagbarClose<cr>:Tlist<cr>
+"
+"let Tlist_Show_One_File=1 "只显示当前文件的tags
+"let Tlist_Enable_Fold_Column=0 "使taglist插件不显示左边的折叠行
+"let Tlist_Exit_OnlyWindow=1 "如果Taglist窗口是最后一个窗口则退出Vim
+"let Tlist_File_Fold_Auto_Close=1 "自动折叠
+"let Tlist_WinWidth=30 "设置窗口宽度
+"let Tlist_Use_Right_Window=1 "在右侧窗口中显示
 
 " -----------------------------------------------------------------------------
 " < txtbrowser 插件配置 >
 " -----------------------------------------------------------------------------
 " 用于文本文件生成标签与与语法高亮（调用TagList插件生成标签，如果可以）
-au BufRead,BufNewFile *.txt setlocal ft=txt
+"au BufRead,BufNewFile *.txt setlocal ft=txt
 
 " " -----------------------------------------------------------------------------
 " " < WinManager 插件配置 >
@@ -661,13 +669,13 @@ au BufRead,BufNewFile *.txt setlocal ft=txt
 " " 管理各个窗口, 或者说整合各个窗口
 
 " " 常规模式下输入 F3 调用插件
-" nmap <F3> :WMToggle<cr>
+ nmap <F3> :WMToggle<cr>
 
 " " 这里可以设置为多个窗口, 如'FileExplorer|TagList'
-" let g:winManagerWindowLayout='FileExplorer'
-
-" let g:persistentBehaviour=0 "只剩一个窗口时, 退出vim
-" let g:winManagerWidth=30 "设置窗口宽度
+"let g:winManagerWindowLayout='FileExplorer'
+"
+"let g:persistentBehaviour=0 "只剩一个窗口时, 退出vim
+"let g:winManagerWidth=30 "设置窗口宽度
 
 " -----------------------------------------------------------------------------
 " < ZoomWin 插件配置 >
@@ -720,9 +728,9 @@ set tags=./tags; "向上级目录递归查找tags文件（好像只有在Windows
 " -----------------------------------------------------------------------------
 " 用于 Windows Gvim 全屏窗口，可用 F11 切换
 " 全屏后再隐藏菜单栏、工具栏、滚动条效果更好
-if (g:iswindows && g:isGUI)
-    map <F11> <Esc>:call libcallnr("gvimfullscreen.dll", "ToggleFullScreen", 0)<CR>
-endif
+"if (g:iswindows && g:isGUI)
+"    map <F11> <Esc>:call libcallnr("gvimfullscreen.dll", "ToggleFullScreen", 0)<CR>
+"endif
 
 " -----------------------------------------------------------------------------
 " < vimtweak 工具配置 > 请确保以已装了工具
